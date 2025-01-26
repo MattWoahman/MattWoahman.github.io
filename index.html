@@ -2,13 +2,16 @@
   rel="stylesheet"
   href="https://unpkg.com/98.css"
 >
-<link href='https://fonts.googleapis.com/css?family=Arbutus' rel='stylesheet'>
+
 <style>
 h4 {
 	 font-family: "Pixelated MS Sans Serif"; font-size: 16px
 }
 h3 {
 	font-family: "Pixelated MS Sans Serif"; font-size: 26px
+}
+p {
+	font-family: "Pixelated MS Sans Serif"; font-size: 15px; font-weight: bold
 }
 h3 span {
 	display: inline-block; background-color:Gainsboro; padding: 4px; border: 3px black; border-style: inset;
@@ -19,17 +22,25 @@ h4 span {
 body {
 	background: url("https://www.newegg.com/insider/wp-content/uploads/2014/04/windows_xp_bliss-wide.jpg"); background-size: cover;
 }
-picheader {
-	font-family: "Pixelated MS Sans Serif"; font-size: 26px;
+div[role="tabpanel"] {
+  display: none;
+  padding: 20px;
 }
-picheader span { 	
-	background-color:Gainsboro; padding-left: 3px; padding-right: 3px; border: 2px black; border-style: inset;
+
+/* Show the content corresponding to the active tab */
+div[role="tabpanel"]:target {
+  display: block; /* Show the content when its ID matches the tab's href */
 }
+menu[role=tablist] > li {
+  background-color: Gainsboro; /* Light background for inactive tabs */
+}
+  
 </style>
 <body>
+
 <div class="window" style="width: 100%">
   <div class="title-bar">
-    <div class="title-bar-text"><h4>Matt Homan</h4></div>
+    <div class="title-bar-text" style="text-align: center"><h4>Matt Homan</h4></div>
     <div class="title-bar-controls">
       <button aria-label="Minimize"></button>
       <button aria-label="Maximize"></button>
@@ -41,13 +52,9 @@ picheader span {
 <h3><span> This is my site to learn more web dev and post about things I like (it also has my CV!)</span> </h3>
 <h4> <span>I'm interested in cybersecurity, networking, and computer history.</span></h4>
 
+<h4 style="font-size: 26px; text-align: center"><span>This is me!!! ⥥ </span></h4>
 
-<br>
- <h4 style="font-size: 26px; text-align: center"><span>This is me!!! ↓</span></h4>
- 
- <br>
- 
-<div class="window" style=" margin: auto; width:600px">
+<div class="window" style=" margin: auto; width:348px">
   <div class="title-bar">
     <div class="title-bar-text">Me!</div>
     <div class="title-bar-controls">
@@ -57,9 +64,83 @@ picheader span {
     </div>
   </div>
   <div class="window-body">
-    <img src="https://i.imgur.com/exCIPV2.png" alt="a picture of me :)">
+    <img style="border: 2px Gainsboro inset;"src="https://i.imgur.com/zOWrvUm.png" alt="a picture of me :)">
   </div>
 </div>
+
+<br> <br><br>
+
+<div class="window-body" style="margin: auto; width:580px">
+
+    <menu role="tablist">
+	  <li role="tab" aria-selected="true"><a href="#work-experience">Career</a></li>
+      <li role="tab"><a href="#education">Education</a></li>
+      <li role="tab" ><a href="#interests">Interests</a></li>
+      <li role="tab" ><a href="#hobbies">Hobbies</a></li>
+      <li role="tab" ><a href="#socials">Socials</a></li>
+    </menu>
+
+    <div class="window" id="work-experience" role="tabpanel" >
+      <div class="window-body"  >
+        <p>Systems Security Administrator @ Central Texas Cyber Range / Baylor University</p>
+      </div>
+    </div>
+    <div id="education" role="tabpanel" class="window"">
+      <div class="window-body">
+        <p>Bachelors of Business Administration - Management Information Systems</p>
+      </div>
+    </div>
+    <div id="interests" role="tabpanel" class="window"">
+      <div class="window-body">
+        <p>Computer Networking, Hardware, Infrastructure</p>
+      </div>
+    </div>
+	<div id="hobbies" role="tabpanel" class="window">
+      <div class="hobbies">
+        <p>Video Games, Reading, Good talks with Great People</p>
+      </div>
+    </div>
+	<div id="socials" role="tabpanel" class="window">
+      <div class="window-body" style="display: flex; justify-content: space-between;">
+        <a href='https://www.linkedin.com/in/matt-homan' target="_blank"><button>LinkedIn</button></a>
+		<a href='https://www.instagram.com/matt_woahman' target="_blank"><button>Instagram</button></a>
+		<a href='https://www.twitter.com/MattWoahman' target="_blank"><button>Twitter</button></a>
+		<a href='https://github.com/MattWoahman' target="_blank"><button>GitHub</button></a>
+      </div>
+    </div>
+  </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Automatically display the Career tab content
+      document.getElementById('work-experience').style.display = 'block';
+
+      document.querySelectorAll('menu[role="tablist"] li').forEach(tab => {
+        tab.addEventListener('click', function(event) {
+          event.preventDefault();
+
+          // Remove 'aria-selected' from all tabs
+          document.querySelectorAll('menu[role="tablist"] li').forEach(item => {
+            item.setAttribute('aria-selected', 'false');
+          });
+
+          // Add 'aria-selected' to the clicked tab
+          this.setAttribute('aria-selected', 'true');
+
+          // Get the ID of the panel to display
+          const targetId = this.querySelector('a').getAttribute('href').substring(1);
+
+          // Hide all panels
+          document.querySelectorAll('[role="tabpanel"]').forEach(panel => {
+            panel.style.display = 'none';
+          });
+
+          // Show the selected panel
+          document.getElementById(targetId).style.display = 'block';
+        });
+      });
+    });
+</script>
 
 </body>
 
