@@ -134,6 +134,11 @@ menu[role=tablist] > li {
         <img src="https://i.imgur.com/xSzIVOg.png" alt="Icon" class="icon-image">
         <p style="font-size: 12px">Photo</p>
     </div>
+	
+<div class="desktop-icon" id="resume-icon">
+        <img src="https://i.imgur.com/mVMM3WV.png" alt="Icon" class="icon-image">
+        <p style="font-size: 12px">Resume</p>
+</div>
 
 <div class="window windowmove" id="matt-photo" style=" display: none;margin: auto; width:348px">
   <div class="title-bar title-barmove" id="title-bar">
@@ -146,6 +151,26 @@ menu[role=tablist] > li {
   </div>
   <div class="window-body" style="cursor:default">
     <img style="border: 2px Gainsboro inset;"src="https://i.imgur.com/zOWrvUm.png" alt="a picture of me :)">
+  </div>
+</div>
+
+
+<div class="window windowmove" id="resume-div" style=" top: 80px; left: 500px; align: center; height:750; display: none;margin: auto; width:560px">
+  <div class="title-bar title-barmove" id="title-bar">
+    <div class="title-bar-text">My Resume</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body" style="cursor:default; border: 2px Gainsboro inset">
+    <object class="pdf" 
+            data=
+"Matt_Homan_Resume_2024.pdf"
+            width="540"
+            height="710">
+    </object>
   </div>
 </div>
 
@@ -290,6 +315,19 @@ document.addEventListener("DOMContentLoaded", function() {
   // Close the "matt-photo" div when clicking the close button
   closeButton.addEventListener('click', function() {
     mattPhotoDiv.style.display = 'none';  // Hide the "matt-photo" div
+  });
+  
+  const resumeIcon = document.getElementById('resume-icon');
+  const resumeDiv = document.getElementById('resume-div');
+  const closeButton2 = resumeDiv.querySelector('button[aria-label="Close"]');
+
+  resumeIcon.addEventListener('click', function() {
+    resumeDiv.style.display = 'block';  // Show the "matt-photo" div
+  });
+
+  // Close the "matt-photo" div when clicking the close button
+  closeButton2.addEventListener('click', function() {
+    resumeDiv.style.display = 'none';  // Hide the "matt-photo" div
   });
 
         function updateClock() {
