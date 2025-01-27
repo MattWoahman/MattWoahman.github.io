@@ -21,6 +21,7 @@ h4 span {
 }
 body {
 	background: url("https://www.newegg.com/insider/wp-content/uploads/2014/04/windows_xp_bliss-wide.jpg"); background-size: cover;
+  overflow: hidden;
 }
 div[role="tabpanel"] {
   display: none;
@@ -69,9 +70,9 @@ menu[role=tablist] > li {
 }
 
 .taskbar {
-	height:30px; 
-	background-color: Gainsboro; 
-	border: 2px white outset; 
+	height:30px;
+	background-color: Gainsboro;
+	border: 2px white outset;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -127,17 +128,73 @@ menu[role=tablist] > li {
   </div>
 </div>
 
-<h3><span> This is my site to learn more web dev and post about things I like (it also has my CV!)</span> </h3>
-<h4> <span>I'm interested in cybersecurity, networking, and computer history.</span></h4>
+<div class="desktop-icon" id="aboutme-icon">
+        <img src="https://i.imgur.com/Op57Ebj.png" alt="Icon" class="icon-image">
+        <p style="font-size: 12px">About Me</p>
+</div>
 
 <div class="desktop-icon" id="desktop-icon">
         <img src="https://i.imgur.com/xSzIVOg.png" alt="Icon" class="icon-image">
         <p style="font-size: 12px">Photo</p>
     </div>
-	
+
 <div class="desktop-icon" id="resume-icon">
         <img src="https://i.imgur.com/mVMM3WV.png" alt="Icon" class="icon-image">
         <p style="font-size: 12px">Resume</p>
+</div>
+
+<div class="window windowmove" id="aboutme-div" style=" display: none;margin: auto; width:480px">
+  <div class="title-bar title-barmove" id="title-bar">
+    <div class="title-bar-text" style="font-size: 16px">Matt Homan</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize" disabled></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body" style="cursor:default">
+    <h3><span> This is my site to learn more web dev and post about things I like (it also has my CV!)</span> </h3>
+    <h4> <span>I'm interested in cybersecurity, networking, and computer history.</span></h4>
+    <div class="window-body" style="margin: auto; width:95%;">
+
+      <menu role="tablist" >
+  	  <li role="tab" aria-selected="true"><a href="#work-experience">Career</a></li>
+        <li role="tab"><a href="#education">Education</a></li>
+        <li role="tab" ><a href="#interests">Interests</a></li>
+        <li role="tab" ><a href="#hobbies">Hobbies</a></li>
+        <li role="tab" ><a href="#socials">Socials</a></li>
+      </menu>
+
+      <div class="window" id="work-experience" role="tabpanel" >
+        <div class="window-body"  >
+          <p>Systems Security Administrator @ Central Texas Cyber Range / Baylor University</p>
+        </div>
+      </div>
+      <div id="education" role="tabpanel" class="window"">
+        <div class="window-body">
+          <p>Bachelors of Business Administration - Management Information Systems</p>
+        </div>
+      </div>
+      <div id="interests" role="tabpanel" class="window">
+        <div class="window-body">
+          <p>Computer Networking, Hardware, Infrastructure</p>
+        </div>
+      </div>
+  	<div id="hobbies" role="tabpanel" class="window">
+        <div class="hobbies">
+          <p>Video Games, Reading, Good talks with Great People</p>
+        </div>
+      </div>
+  	<div id="socials" role="tabpanel" class="window">
+        <div class="window-body" style="display: flex; justify-content: space-between;">
+          <a href='https://www.linkedin.com/in/matt-homan' target="_blank"><button>LinkedIn</button></a>
+  		<a href='https://www.instagram.com/matt_woahman' target="_blank"><button>Instagram</button></a>
+  		<a href='https://www.twitter.com/MattWoahman' target="_blank"><button>Twitter</button></a>
+  		<a href='https://github.com/MattWoahman' target="_blank"><button>GitHub</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="window windowmove" id="matt-photo" style=" display: none;margin: auto; width:348px">
@@ -165,7 +222,7 @@ menu[role=tablist] > li {
     </div>
   </div>
   <div class="window-body" style="cursor:default; border: 2px Gainsboro inset">
-    <object class="pdf" 
+    <object class="pdf"
             data=
 "Matt_Homan_Resume_2024.pdf"
             width="540"
@@ -175,46 +232,6 @@ menu[role=tablist] > li {
 </div>
 
 <br> <br><br>
-
-<div class="window-body" style="margin: auto; width:580px; position: absolute; right:50px; top:200px;">
-
-    <menu role="tablist" >
-	  <li role="tab" aria-selected="true"><a href="#work-experience">Career</a></li>
-      <li role="tab"><a href="#education">Education</a></li>
-      <li role="tab" ><a href="#interests">Interests</a></li>
-      <li role="tab" ><a href="#hobbies">Hobbies</a></li>
-      <li role="tab" ><a href="#socials">Socials</a></li>
-    </menu>
-
-    <div class="window" id="work-experience" role="tabpanel" >
-      <div class="window-body"  >
-        <p>Systems Security Administrator @ Central Texas Cyber Range / Baylor University</p>
-      </div>
-    </div>
-    <div id="education" role="tabpanel" class="window"">
-      <div class="window-body">
-        <p>Bachelors of Business Administration - Management Information Systems</p>
-      </div>
-    </div>
-    <div id="interests" role="tabpanel" class="window">
-      <div class="window-body">
-        <p>Computer Networking, Hardware, Infrastructure</p>
-      </div>
-    </div>
-	<div id="hobbies" role="tabpanel" class="window">
-      <div class="hobbies">
-        <p>Video Games, Reading, Good talks with Great People</p>
-      </div>
-    </div>
-	<div id="socials" role="tabpanel" class="window">
-      <div class="window-body" style="display: flex; justify-content: space-between;">
-        <a href='https://www.linkedin.com/in/matt-homan' target="_blank"><button>LinkedIn</button></a>
-		<a href='https://www.instagram.com/matt_woahman' target="_blank"><button>Instagram</button></a>
-		<a href='https://www.twitter.com/MattWoahman' target="_blank"><button>Twitter</button></a>
-		<a href='https://github.com/MattWoahman' target="_blank"><button>GitHub</button></a>
-      </div>
-    </div>
-  </div>
 
 <div class="taskbar">
   <button style="background: url('https://i.imgur.com/z4XLW0F.png'); height:90%; width:75px; background-size:100% 100%;" ></button>
@@ -261,7 +278,7 @@ menu[role=tablist] > li {
 document.addEventListener("DOMContentLoaded", function() {
   // Attach the drag functionality only to .windowmove elements
   const windows = document.querySelectorAll('.windowmove');
-  
+
   let isDragging = false;
   let offsetX = 0, offsetY = 0;
   let currentWindow = null;
@@ -279,15 +296,31 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('mouseup', onMouseUp);
   }
 
-  function onMouseMove(e) {
-    if (isDragging && currentWindow) {
-      const newLeft = e.clientX - offsetX;
-      const newTop = e.clientY - offsetY;
+      function onMouseMove(e) {
+        if (isDragging && currentWindow) {
+          // Calculate new position
+          let newLeft = e.clientX - offsetX;
+          let newTop = e.clientY - offsetY;
 
-      currentWindow.style.left = `${newLeft}px`;
-      currentWindow.style.top = `${newTop}px`;
-    }
-  }
+          // Get the bounding dimensions of the viewport
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+
+          // Get the dimensions of the draggable window
+          const windowRect = currentWindow.getBoundingClientRect();
+
+          // Ensure the window stays within bounds
+          if (newLeft < 0) newLeft = 0; // Prevent going off the left edge
+          if (newTop < 0) newTop = 0; // Prevent going off the top edge
+          if (newLeft + windowRect.width > viewportWidth) newLeft = viewportWidth - windowRect.width; // Prevent going off the right edge
+          if (newTop + windowRect.height > viewportHeight) newTop = viewportHeight - windowRect.height; // Prevent going off the bottom edge
+
+          // Apply the constrained position
+          currentWindow.style.left = `${newLeft}px`;
+          currentWindow.style.top = `${newTop}px`;
+        }
+      }
+
 
   function onMouseUp() {
     isDragging = false;
@@ -316,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function() {
   closeButton.addEventListener('click', function() {
     mattPhotoDiv.style.display = 'none';  // Hide the "matt-photo" div
   });
-  
+
   const resumeIcon = document.getElementById('resume-icon');
   const resumeDiv = document.getElementById('resume-div');
   const closeButton2 = resumeDiv.querySelector('button[aria-label="Close"]');
@@ -330,20 +363,33 @@ document.addEventListener("DOMContentLoaded", function() {
     resumeDiv.style.display = 'none';  // Hide the "matt-photo" div
   });
 
+    const aboutmeIcon = document.getElementById('aboutme-icon');
+    const aboutmeDiv = document.getElementById('aboutme-div');
+    const closeButton3 = aboutmeDiv.querySelector('button[aria-label="Close"]');
+
+    aboutmeIcon.addEventListener('click', function() {
+      aboutmeDiv.style.display = 'block';  // Show the "matt-photo" div
+    });
+
+    // Close the "matt-photo" div when clicking the close button
+    closeButton3.addEventListener('click', function() {
+      aboutmeDiv.style.display = 'none';  // Hide the "matt-photo" div
+    });
+
         function updateClock() {
             // Create a new Date object for the current time
             const now = new Date();
 
             // Get the current time in CST (Central Standard Time)
-            const options = { 
-                timeZone: 'America/Chicago', 
-                hour: '2-digit', 
-                minute: '2-digit',  
-                hour12: true 
+            const options = {
+                timeZone: 'America/Chicago',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
             };
-            
+
             const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
-            
+
             // Update the clock element with the formatted time
             document.getElementById('clock').textContent = timeString;
         }
